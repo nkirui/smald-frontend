@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: smald
+ 
+spec:
+  destinations:   
+    - namespace: prod    
+      name: in-cluster
+    - namespace: dev   
+      name: in-cluster 
+    - namespace: sbox
+      name: in-cluster
+
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
+  orphanedResources:
+    warn: true
+  sourceRepos:
+    - https://github.com/nkirui/smald-frontend.git

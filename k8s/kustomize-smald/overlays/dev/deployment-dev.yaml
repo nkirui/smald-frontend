@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: smald-app-deployment
+  labels:
+    app: smald-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: smald-app
+  template:
+    metadata:
+      labels:
+        app: smald-app
+    spec:
+      containers:
+      - name: smald-app
+        image: nkirui2030/smald:v1
+        ports:
+        - containerPort: 80
+        resources:
+          limits: 
+            memory: 128Mi
+            cpu: "0.3"
+          requests:
+            memory:  128Mi
+            cpu: "0.3"
+
+

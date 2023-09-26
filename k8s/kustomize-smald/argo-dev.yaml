@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: smald-dev 
+spec:
+  project: smald
+  source:
+    repoURL: https://github.com/nkirui/smald-frontend.git
+    path:  k8s/kustomize-smald/overlays/dev
+    targetRevision: HEAD    
+  destination:
+    name: in-cluster
+    namespace: dev
+  syncPolicy:
+    syncOptions:
+      - ApplyOutOfSyncOnly=true
+      - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true
