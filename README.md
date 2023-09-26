@@ -25,3 +25,42 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## ARGOCD STEPS
+
+- Here is the [Manifest path](/k8s/kustomize-smald)
+
+## login to argocd CLI
+
+`
+argocd login <IP or FQDN>
+`
+
+## Add repo
+
+```-
+    argocd app add https://github.com/nkirui/smald-frontend \
+    --type git \
+    --name smald \
+    --project smald \
+    --username nkirui \
+    --password gh**********
+```
+
+## Create project
+
+`argocd proj create --file $(pwd)/k8s/kustomize-smald/argo-project.yaml`
+
+## create apps
+
+`argocd app create --file $(pwd)/k8s/kustomize-smald/argo-dev.yaml`
+
+## < TODO 1 >
+
+`argocd app create --file $(pwd)/k8s/kustomize-smald/argo-sbox.yaml`\
+`argocd app create --file $(pwd)/k8s/kustomize-smald/argo-prod.yaml`
+
+## < TODO 2 >
+
+- Create a bash script to accomplish everything at ago.
+- Add CI/CD for dev,sbox,and prod
