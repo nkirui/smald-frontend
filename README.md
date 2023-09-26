@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Smald
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.6.
@@ -26,6 +25,3 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-=======
-# smald-frontend
->>>>>>> 3ea92fa064b153285260963ef7a4b0c0293214a9
