@@ -1,0 +1,18 @@
+apiVersion:  traefik.io/v1alpha1
+kind: IngressRoute
+
+metadata:
+  name: ui-smald
+spec:
+  entryPoints:
+    - websecure
+  tls:
+    secretName: wildcard.smald.cloud-tls
+  routes:
+  - match: Host(`web.smald.cloud`) || Host(`web.smald.cloud`)
+    kind: Rule
+    services:
+    - name: smald-app-svc
+      kind: Service
+      port: 443
+      scheme: http
